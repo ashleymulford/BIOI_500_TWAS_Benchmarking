@@ -1,5 +1,4 @@
-#Ulcerative Colitis Phenotype
-
+#Test Data
 #must all run in dir: /homes/amulford/TIGAR/
 #needed to edited .sh file so it calls python3 - done
 
@@ -12,8 +11,6 @@
 --genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
 --out /homes/amulford/TIGAR/Result
 
-#need sklearn
-
 #Predict Expression
 /homes/amulford/TIGAR/TIGAR_Model_Pred.sh \
 --model DPR \
@@ -23,9 +20,6 @@
 --train_info_path /homes/amulford/TIGAR/Result/elastic_net_CHR1/CHR1_elastic_net_training_info.txt \
 --genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
 --out /homes/amulford/TIGAR/Result
-
-#works
-
 
 #Generate Covariance file
 /homes/amulford/TIGAR/TWAS/Covar/TIGAR_Covar.sh \
@@ -47,4 +41,3 @@
 --chr 1 \
 --out /homes/amulford/TIGAR/Result
 
-#works
