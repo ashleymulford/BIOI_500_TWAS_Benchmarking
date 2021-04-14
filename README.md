@@ -51,6 +51,7 @@
  - io
  - subprocess
  - multiprocess
+ - sklearn
 
 ### R packages:
 
