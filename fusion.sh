@@ -1,21 +1,16 @@
 #Test - works
-Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
---sumstats /homes/amulford/PGC2.SCZ.sumstats \
---weights /homes/amulford/fusion_weights/GTEx.Whole_Blood.pos \
---weights_dir /homes/amulford/fusion_weights/ \
---ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
---chr 1 \
---out /homes/amulford/fusion_output/uc_Whole_Blood_1_assoc.txt
 
 
+for chr in {1..22}
+do
 Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
 --sumstats /homes/amulford/sum_stats_b37/uc_fusion_anderson_2011_21297633_uc_efo0000729_1_gwas.sumstats.tsv \
 --weights /homes/amulford/fusion_weights/GTEx.Whole_Blood.pos \
 --weights_dir /homes/amulford/fusion_weights/ \
 --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
---chr 1 \
---out /homes/amulford/fusion_output/uc_Whole_Blood_1_assoc.txt
-
+--chr $chr \
+--out /homes/amulford/fusion_output/uc_Whole_Blood_${chr}_assoc.txt
+done
 
 #Ulcerative Colitis Phenotype:
 
