@@ -1,6 +1,7 @@
 #Ulcerative Colitis Phenotype
 
 #must all run in dir: /homes/amulford/TIGAR/
+#needed to edited .sh file so it calls python3 - done
 
 #Train DPR Model
 /homes/amulford/TIGAR/TIGAR_Model_Train.sh \
@@ -11,17 +12,19 @@
 --genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
 --out /homes/amulford/TIGAR/Result
 
-#Getting error: ImportError: No module named pandas
-#Need pandas installed
+#need sklearn
 
 #Predict Expression
 /homes/amulford/TIGAR/TIGAR_Model_Pred.sh \
 --model DPR \
+--sampleID /homes/amulford/TIGAR/example_data/sampleID.txt \
 --chr 1 \
 --train_weight_path /homes/amulford/TIGAR/Result/elastic_net_CHR1/CHR1_elastic_net_training_weight.txt \
 --train_info_path /homes/amulford/TIGAR/Result/elastic_net_CHR1/CHR1_elastic_net_training_info.txt \
 --genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
 --out /homes/amulford/TIGAR/Result
+
+#works
 
 
 #Generate Covariance file
@@ -32,6 +35,8 @@
 --Format GT \
 --out /homes/amulford/TIGAR/Result
 
+#permission denied... try duplicating??
+#switch to python3
 
 #Run Association Test
 /homes/amulford/TIGAR/TIGAR_TWAS.sh --asso 2 \
@@ -42,3 +47,4 @@
 --chr 1 \
 --out /homes/amulford/TIGAR/Result
 
+#works
