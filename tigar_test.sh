@@ -29,9 +29,6 @@
 --Format GT \
 --out /homes/amulford/TIGAR/Result
 
-#permission denied... try duplicating??
-#switch to python3
-
 #Run Association Test
 /homes/amulford/TIGAR/TIGAR_TWAS.sh --asso 2 \
 --Gene_Exp /homes/amulford/TIGAR/example_data/Gene_Exp.txt \
