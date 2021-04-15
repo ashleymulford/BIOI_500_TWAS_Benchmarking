@@ -16,6 +16,22 @@ for tiss in ${tissues[@]}chr in {1..22}
 done
 
 
+declare -a tissues=("Breast_Mammary_Tissue" "Cells_Transformed_fibroblasts" "Cells_EBV-transformed_lymphocytes" "Colon_Sigmoid" "Colon_Transverse" "Esophagus_Gastroesophageal_Junction" "Esophagus_Mucosa" "Esophagus_Muscularis" "Heart_Atrial_Appendage" "Heart_Left_Ventricle" "Liver" "Lung" "Muscle_Skeletal" "Nerve_Tibial" "Ovary" "Pancreas" "Pituitary" "Prostate" "Skin_Not_Sun_Exposed_Suprapubic" "Skin_Sun_Exposed_Lower_leg" "Small_Intestine_Terminal_Ileum" "Spleen" "Stomach" "Testis" "Thyroid" "Uterus" "Vagina" "Whole_Blood")
+for tiss in ${tissues[@]}chr in {1..22}
+  do
+  for chr in {1..22}
+    do
+    Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
+    --sumstats /homes/amulford/sum_stats_b37/uc_fusion_anderson_2011_21297633_uc_efo0000729_1_gwas.sumstats.tsv \
+    --weights /homes/amulford/fusion_weights/GTEx.${tiss}.pos \
+    --weights_dir /homes/amulford/fusion_weights/ \
+    --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
+    --chr ${chr} \
+    --out /homes/amulford/fusion_output/uc_${tiss}_${chr}_assoc.txt
+  done
+done
+
+
 #Cholesterol Phenotype:
 
 #Asthma Phenotype:
