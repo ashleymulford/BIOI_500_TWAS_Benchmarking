@@ -6,7 +6,7 @@ for tiss in ${tissues[@]}
   for chr in {1..22}
     do
     Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
-    --sumstats /homes/amulford/sum_stats_b37/uc_fusion_anderson_2011_21297633_uc_efo0000729_1_gwas.sumstats.tsv \
+    --sumstats /homes/amulford/sum_stats_b37/uc_fusion_anderson_2011_21297633_efo0000729_gwas.sumstats_${chr}_rs.tsv \
     --weights /homes/amulford/fusion_weights/GTEx.${tiss}.pos \
     --weights_dir /homes/amulford/fusion_weights/ \
     --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
