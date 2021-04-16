@@ -28,7 +28,7 @@ for tiss in ${tissues[@]}
     --weights_dir /homes/amulford/fusion_weights/ \
     --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
     --chr ${chr} \
-    --out /homes/amulford/fusion_output/uc_${tiss}_${chr}_assoc.txt
+    --out /homes/amulford/fusion_output/chol_${tiss}_${chr}_assoc.txt
   done
 done
 
@@ -40,12 +40,12 @@ for tiss in ${tissues[@]}
   for chr in {1..22}
     do
     Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
-    --sumstats /homes/amulford/sum_stats_b37/Shrine_30552067_moderate-severe_asthma_fusion.txt \
+    --sumstats /homes/amulford/sum_stats_b37/Shrine_30552067_moderate-severe_asthma_fusion_rs.txt \
     --weights /homes/amulford/fusion_weights/GTEx.${tiss}.pos \
     --weights_dir /homes/amulford/fusion_weights/ \
     --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
     --chr ${chr} \
-    --out /homes/amulford/fusion_output/uc_${tiss}_${chr}_assoc.txt
+    --out /homes/amulford/fusion_output/asthma_${tiss}_${chr}_assoc.txt
   done
 done
 
