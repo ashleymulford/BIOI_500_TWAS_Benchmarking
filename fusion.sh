@@ -51,3 +51,35 @@ done
 
 
 
+declare -a tissues=( "Adipose_Visceral_Omentum" "Artery_Aorta" "Artery_Tibial" "Brain_Cerebellar_Hemisphere" "Brain_Cortex" "Brain_Hippocampus")
+for tiss in ${tissues[@]}
+  do
+  for chr in {1..22}
+    do
+    /usr/bin/time -v Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
+    --sumstats /homes/amulford/sum_stats_b37/Shrine_30552067_moderate-severe_asthma_fusion_${chr}_rs.txt \
+    --weights /homes/amulford/fusion_weights/GTEx.${tiss}.pos \
+    --weights_dir /homes/amulford/fusion_weights/ \
+    --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
+    --chr ${chr} \
+    --out /homes/amulford/fusion_output/asthma_${tiss}_${chr}_assoc.txt
+  done
+done
+
+declare -a tissues=("Adrenal_Gland" "Artery_Coronary" "Brain_Caudate_basal_ganglia" "Brain_Cerebellum" "Brain_Frontal_Cortex_BA9" "Brain_Hypothalamus")
+for tiss in ${tissues[@]}
+  do
+  for chr in {1..22}
+    do
+    /usr/bin/time -v Rscript /homes/amulford/fusion_twas-master/FUSION.assoc_test.R \
+    --sumstats /homes/amulford/sum_stats_b37/Shrine_30552067_moderate-severe_asthma_fusion_${chr}_rs.txt \
+    --weights /homes/amulford/fusion_weights/GTEx.${tiss}.pos \
+    --weights_dir /homes/amulford/fusion_weights/ \
+    --ref_ld_chr /homes/amulford/fusion_twas-master/LDREF/1000G.EUR. \
+    --chr ${chr} \
+    --out /homes/amulford/fusion_output/asthma_${tiss}_${chr}_assoc.txt
+  done
+done
+
+
+
