@@ -22,3 +22,26 @@ grep "1 rs" Shrine_30552067_moderate-severe_asthma_tigar.txt > Shrine_30552067_m
 awk '{print $1 FS $3 FS $4 FS $5 FS $6}' Shrine_30552067_moderate-severe_asthma_tigar_1_rs.txt > Shrine_30552067_moderate-severe_asthma_tigar_1_pos.txt
 #add column names: CHROM POS REF ALT Zscore
 #gzip when done
+
+
+
+
+#other files:
+#downloaded data:
+wget https://storage.googleapis.com/gtex_analysis_v8/single_tissue_qtl_data/GTEx_Analysis_v8_eQTL_expression_matrices.tar
+#unzip:
+tar -xf GTEx_Analysis_v8_eQTL_expression_matrices.tar
+#unzip files within this dir - need expression data for models
+#rename first four columns: CHROM GeneStart GeneEnd TargetID
+#make samples: grep then run samples.py
+grep "GTEX-" Whole_Blood.v8.normalized_expression.bed > samples_wb.txt
+python samples.py 
+#outputs samples_wb_onecol.txt
+
+
+
+
+
+
+
+
