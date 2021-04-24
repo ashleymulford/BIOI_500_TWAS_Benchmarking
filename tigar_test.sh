@@ -3,22 +3,11 @@
 #needed to edited .sh file so it calls python3 - done
 
 #Train DPR Model
-
 /usr/bin/time -v /homes/amulford/TIGAR/TIGAR_Model_Train.sh \
 --model DPR \
 --Gene_Exp /homes/amulford/TIGAR/example_data/Gene_Exp.txt \
 --sampleID /homes/amulford/TIGAR/example_data/sampleID.txt \
 --chr 1 \
---genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
---out /homes/amulford/TIGAR/Result
-
-#Predict Expression
-/usr/bin/time -v /homes/amulford/TIGAR/TIGAR_Model_Pred.sh \
---model DPR \
---sampleID /homes/amulford/TIGAR/example_data/sampleID.txt \
---chr 1 \
---train_weight_path /homes/amulford/TIGAR/Result/elastic_net_CHR1/CHR1_elastic_net_training_weight.txt \
---train_info_path /homes/amulford/TIGAR/Result/elastic_net_CHR1/CHR1_elastic_net_training_info.txt \
 --genofile_type vcf --genofile /homes/amulford/TIGAR/example_data/Genotype/example.vcf.gz --Format GT \
 --out /homes/amulford/TIGAR/Result
 
@@ -38,4 +27,6 @@
 --Covar /homes/amulford/TIGAR/Result/reference_cov/CHR1_reference_cov.txt.gz \
 --chr 1 \
 --out /homes/amulford/TIGAR/Result
+
+
 
